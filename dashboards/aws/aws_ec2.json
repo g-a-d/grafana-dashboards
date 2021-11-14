@@ -1,0 +1,1733 @@
+{
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": "-- Grafana --",
+                "enable": true,
+                "hide": true,
+                "iconColor": "rgba(0, 211, 255, 1)",
+                "name": "Annotations & Alerts",
+                "target": {
+                    "limit": 100,
+                    "matchAny": false,
+                    "tags": [],
+                    "type": "dashboard"
+                },
+                "type": "dashboard"
+            }
+        ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": null,
+    "iteration": 1636836032034,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 0,
+                "y": 0
+            },
+            "id": 0,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select account_id, count(*) from aws_ec2_instances group by account_id",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_instances by account_id",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 5,
+                "y": 0
+            },
+            "id": 1,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "text": {},
+                "textMode": "auto"
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select count(*) from aws_ec2_instances where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_instances",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 10,
+                "y": 0
+            },
+            "id": 2,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select region, count(*) from aws_ec2_instances where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_instances by region",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 9,
+                "x": 15,
+                "y": 0
+            },
+            "id": 3,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select * from aws_ec2_instances where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "aws_ec2_instances",
+            "type": "table"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 0,
+                "y": 7
+            },
+            "id": 4,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select account_id, count(*) from aws_ec2_internet_gateways group by account_id",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_internet_gateways by account_id",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 5,
+                "y": 7
+            },
+            "id": 5,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "text": {},
+                "textMode": "auto"
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select count(*) from aws_ec2_internet_gateways where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_internet_gateways",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 10,
+                "y": 7
+            },
+            "id": 6,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select region, count(*) from aws_ec2_internet_gateways where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_internet_gateways by region",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 9,
+                "x": 15,
+                "y": 7
+            },
+            "id": 7,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select * from aws_ec2_internet_gateways where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "aws_ec2_internet_gateways",
+            "type": "table"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 0,
+                "y": 14
+            },
+            "id": 8,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select account_id, count(*) from aws_ec2_nat_gateways group by account_id",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_nat_gateways by account_id",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 5,
+                "y": 14
+            },
+            "id": 9,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "text": {},
+                "textMode": "auto"
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select count(*) from aws_ec2_nat_gateways where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_nat_gateways",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 10,
+                "y": 14
+            },
+            "id": 10,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select region, count(*) from aws_ec2_nat_gateways where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_nat_gateways by region",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 9,
+                "x": 15,
+                "y": 14
+            },
+            "id": 11,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select * from aws_ec2_nat_gateways where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "aws_ec2_nat_gateways",
+            "type": "table"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 0,
+                "y": 21
+            },
+            "id": 12,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select account_id, count(*) from aws_ec2_subnets group by account_id",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_subnets by account_id",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 5,
+                "y": 21
+            },
+            "id": 13,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "text": {},
+                "textMode": "auto"
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select count(*) from aws_ec2_subnets where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_subnets",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 10,
+                "y": 21
+            },
+            "id": 14,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select region, count(*) from aws_ec2_subnets where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_subnets by region",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 9,
+                "x": 15,
+                "y": 21
+            },
+            "id": 15,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select * from aws_ec2_subnets where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "aws_ec2_subnets",
+            "type": "table"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 0,
+                "y": 28
+            },
+            "id": 16,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select account_id, count(*) from aws_ec2_vpcs group by account_id",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_vpcs by account_id",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 5,
+                "y": 28
+            },
+            "id": 17,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "text": {},
+                "textMode": "auto"
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select count(*) from aws_ec2_vpcs where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_vpcs",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 10,
+                "y": 28
+            },
+            "id": 18,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select region, count(*) from aws_ec2_vpcs where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_ec2_vpcs by region",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 9,
+                "x": 15,
+                "y": 28
+            },
+            "id": 19,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select * from aws_ec2_vpcs where account_id in (${account_ids}) and region in (${regions})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "aws_ec2_vpcs",
+            "type": "table"
+        }
+    ],
+    "schemaVersion": 31,
+    "style": "dark",
+    "tags": [
+        "aws",
+        "ec2"
+    ],
+    "templating": {
+        "list": [
+            {
+                "allValue": null,
+                "current": {
+                    "selected": true,
+                    "text": [
+                        "All"
+                    ],
+                    "value": [
+                        "$__all"
+                    ]
+                },
+                "datasource": null,
+                "definition": "select account_id from aws_accounts",
+                "description": null,
+                "error": null,
+                "hide": 0,
+                "includeAll": true,
+                "label": null,
+                "multi": true,
+                "name": "account_ids",
+                "options": [],
+                "query": "select account_id from aws_accounts",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 1,
+                "type": "query"
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "selected": true,
+                    "text": [
+                        "All"
+                    ],
+                    "value": [
+                        "$__all"
+                    ]
+                },
+                "description": null,
+                "error": null,
+                "hide": 0,
+                "includeAll": true,
+                "label": null,
+                "multi": true,
+                "name": "regions",
+                "options": [
+                    {
+                        "selected": true,
+                        "text": "All",
+                        "value": "$__all"
+                    },
+                    {
+                        "selected": false,
+                        "text": "us-east-2",
+                        "value": "us-east-2"
+                    },
+                    {
+                        "selected": false,
+                        "text": "us-east-1",
+                        "value": "us-east-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "us-west-1",
+                        "value": "us-west-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "us-west-2",
+                        "value": "us-west-2"
+                    },
+                    {
+                        "selected": false,
+                        "text": "af-south-1",
+                        "value": "af-south-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ap-east-1",
+                        "value": "ap-east-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ap-south-1",
+                        "value": "ap-south-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ap-northeast-3",
+                        "value": "ap-northeast-3"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ap-northeast-2",
+                        "value": "ap-northeast-2"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ap-southeast-1",
+                        "value": "ap-southeast-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ap-southeast-2",
+                        "value": "ap-southeast-2"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ap-northeast-1",
+                        "value": "ap-northeast-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "ca-central-1",
+                        "value": "ca-central-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "eu-central-1",
+                        "value": "eu-central-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "eu-west-1",
+                        "value": "eu-west-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "eu-west-2",
+                        "value": "eu-west-2"
+                    },
+                    {
+                        "selected": false,
+                        "text": "eu-south-1",
+                        "value": "eu-south-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "eu-west-3",
+                        "value": "eu-west-3"
+                    },
+                    {
+                        "selected": false,
+                        "text": "eu-north-1",
+                        "value": "eu-north-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "me-south-1",
+                        "value": "me-south-1"
+                    },
+                    {
+                        "selected": false,
+                        "text": "sa-east-1",
+                        "value": "sa-east-1"
+                    }
+                ],
+                "query": "us-east-2,us-east-1,us-west-1,us-west-2,af-south-1,ap-east-1,ap-south-1,ap-northeast-3,ap-northeast-2,ap-southeast-1,ap-southeast-2,ap-northeast-1,ca-central-1,eu-central-1,eu-west-1,eu-west-2,eu-south-1,eu-west-3,eu-north-1,me-south-1,sa-east-1",
+                "queryValue": "",
+                "skipUrlSync": false,
+                "type": "custom"
+            }
+        ]
+    },
+    "time": {
+        "from": "now-6h",
+        "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "AWS EC2",
+    "uid": "aws_ec2_json",
+    "version": 3
+}

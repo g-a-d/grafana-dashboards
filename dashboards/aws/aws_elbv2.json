@@ -76,7 +76,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select account_id, count(*) from aws_rds_instances group by account_id",
+                    "rawSql": "select account_id, count(*) from aws_elbv2_load_balancers group by account_id",
                     "refId": "A",
                     "select": [
                         [
@@ -100,7 +100,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_instances by account_id",
+            "title": "count aws_elbv2_load_balancers by account_id",
             "type": "piechart"
         },
         {
@@ -156,7 +156,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select count(*) from aws_rds_instances where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select count(*) from aws_elbv2_load_balancers where account_id in (${account_ids}) and region in (${regions})",
                     "refId": "A",
                     "select": [
                         [
@@ -180,7 +180,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_instances",
+            "title": "count aws_elbv2_load_balancers",
             "type": "stat"
         },
         {
@@ -232,7 +232,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select region, count(*) from aws_rds_instances where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "rawSql": "select region, count(*) from aws_elbv2_load_balancers where account_id in (${account_ids}) and region in (${regions}) group by region",
                     "refId": "A",
                     "select": [
                         [
@@ -256,7 +256,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_instances by region",
+            "title": "count aws_elbv2_load_balancers by region",
             "type": "piechart"
         },
         {
@@ -304,7 +304,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select * from aws_rds_instances where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select * from aws_elbv2_load_balancers where account_id in (${account_ids}) and region in (${regions})",
                     "refId": "A",
                     "select": [
                         [
@@ -328,7 +328,7 @@
                     ]
                 }
             ],
-            "title": "aws_rds_instances",
+            "title": "aws_elbv2_load_balancers",
             "type": "table"
         },
         {
@@ -380,7 +380,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select account_id, count(*) from aws_rds_clusters group by account_id",
+                    "rawSql": "select account_id, count(*) from aws_elbv2_target_groups group by account_id",
                     "refId": "A",
                     "select": [
                         [
@@ -404,7 +404,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_clusters by account_id",
+            "title": "count aws_elbv2_target_groups by account_id",
             "type": "piechart"
         },
         {
@@ -460,7 +460,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select count(*) from aws_rds_clusters where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select count(*) from aws_elbv2_target_groups where account_id in (${account_ids}) and region in (${regions})",
                     "refId": "A",
                     "select": [
                         [
@@ -484,7 +484,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_clusters",
+            "title": "count aws_elbv2_target_groups",
             "type": "stat"
         },
         {
@@ -536,7 +536,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select region, count(*) from aws_rds_clusters where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "rawSql": "select region, count(*) from aws_elbv2_target_groups where account_id in (${account_ids}) and region in (${regions}) group by region",
                     "refId": "A",
                     "select": [
                         [
@@ -560,7 +560,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_clusters by region",
+            "title": "count aws_elbv2_target_groups by region",
             "type": "piechart"
         },
         {
@@ -608,7 +608,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select * from aws_rds_clusters where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select * from aws_elbv2_target_groups where account_id in (${account_ids}) and region in (${regions})",
                     "refId": "A",
                     "select": [
                         [
@@ -632,7 +632,7 @@
                     ]
                 }
             ],
-            "title": "aws_rds_clusters",
+            "title": "aws_elbv2_target_groups",
             "type": "table"
         }
     ],
@@ -640,7 +640,7 @@
     "style": "dark",
     "tags": [
         "aws",
-        "rds"
+        "elbv2"
     ],
     "templating": {
         "list": [
@@ -815,7 +815,7 @@
     },
     "timepicker": {},
     "timezone": "",
-    "title": "AWS RDS",
-    "uid": "aws_rds_json",
+    "title": "AWS ELBv2",
+    "uid": "aws_elbv2_json",
     "version": 3
 }

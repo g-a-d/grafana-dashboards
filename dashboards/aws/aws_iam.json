@@ -76,7 +76,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select account_id, count(*) from aws_rds_instances group by account_id",
+                    "rawSql": "select account_id, count(*) from aws_iam_users group by account_id",
                     "refId": "A",
                     "select": [
                         [
@@ -100,7 +100,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_instances by account_id",
+            "title": "count aws_iam_users by account_id",
             "type": "piechart"
         },
         {
@@ -156,7 +156,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select count(*) from aws_rds_instances where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select count(*) from aws_iam_users where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -180,84 +180,8 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_instances",
+            "title": "count aws_iam_users",
             "type": "stat"
-        },
-        {
-            "datasource": null,
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "palette-classic"
-                    },
-                    "custom": {
-                        "hideFrom": {
-                            "legend": false,
-                            "tooltip": false,
-                            "viz": false
-                        }
-                    },
-                    "mappings": []
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 10,
-                "y": 0
-            },
-            "id": 2,
-            "options": {
-                "legend": {
-                    "displayMode": "list",
-                    "placement": "bottom"
-                },
-                "pieType": "pie",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": true
-                },
-                "tooltip": {
-                    "mode": "single"
-                }
-            },
-            "pluginVersion": "8.2.2",
-            "targets": [
-                {
-                    "format": "table",
-                    "group": [],
-                    "metricColumn": "none",
-                    "rawQuery": true,
-                    "rawSql": "select region, count(*) from aws_rds_instances where account_id in (${account_ids}) and region in (${regions}) group by region",
-                    "refId": "A",
-                    "select": [
-                        [
-                            {
-                                "params": [
-                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
-                                ],
-                                "type": "column"
-                            }
-                        ]
-                    ],
-                    "table": "aws_redshift_clusters",
-                    "timeColumn": "cluster_create_time",
-                    "timeColumnType": "timestamp",
-                    "where": [
-                        {
-                            "name": "$__timeFilter",
-                            "params": [],
-                            "type": "macro"
-                        }
-                    ]
-                }
-            ],
-            "title": "count aws_rds_instances by region",
-            "type": "piechart"
         },
         {
             "datasource": null,
@@ -290,7 +214,7 @@
             "gridPos": {
                 "h": 7,
                 "w": 9,
-                "x": 15,
+                "x": 10,
                 "y": 0
             },
             "id": 3,
@@ -304,7 +228,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select * from aws_rds_instances where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select * from aws_iam_users where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -328,7 +252,7 @@
                     ]
                 }
             ],
-            "title": "aws_rds_instances",
+            "title": "aws_iam_users",
             "type": "table"
         },
         {
@@ -380,7 +304,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select account_id, count(*) from aws_rds_clusters group by account_id",
+                    "rawSql": "select account_id, count(*) from aws_iam_roles group by account_id",
                     "refId": "A",
                     "select": [
                         [
@@ -404,7 +328,7 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_clusters by account_id",
+            "title": "count aws_iam_roles by account_id",
             "type": "piechart"
         },
         {
@@ -460,7 +384,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select count(*) from aws_rds_clusters where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select count(*) from aws_iam_roles where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -484,84 +408,8 @@
                     ]
                 }
             ],
-            "title": "count aws_rds_clusters",
+            "title": "count aws_iam_roles",
             "type": "stat"
-        },
-        {
-            "datasource": null,
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "palette-classic"
-                    },
-                    "custom": {
-                        "hideFrom": {
-                            "legend": false,
-                            "tooltip": false,
-                            "viz": false
-                        }
-                    },
-                    "mappings": []
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 10,
-                "y": 7
-            },
-            "id": 6,
-            "options": {
-                "legend": {
-                    "displayMode": "list",
-                    "placement": "bottom"
-                },
-                "pieType": "pie",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": true
-                },
-                "tooltip": {
-                    "mode": "single"
-                }
-            },
-            "pluginVersion": "8.2.2",
-            "targets": [
-                {
-                    "format": "table",
-                    "group": [],
-                    "metricColumn": "none",
-                    "rawQuery": true,
-                    "rawSql": "select region, count(*) from aws_rds_clusters where account_id in (${account_ids}) and region in (${regions}) group by region",
-                    "refId": "A",
-                    "select": [
-                        [
-                            {
-                                "params": [
-                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
-                                ],
-                                "type": "column"
-                            }
-                        ]
-                    ],
-                    "table": "aws_redshift_clusters",
-                    "timeColumn": "cluster_create_time",
-                    "timeColumnType": "timestamp",
-                    "where": [
-                        {
-                            "name": "$__timeFilter",
-                            "params": [],
-                            "type": "macro"
-                        }
-                    ]
-                }
-            ],
-            "title": "count aws_rds_clusters by region",
-            "type": "piechart"
         },
         {
             "datasource": null,
@@ -594,7 +442,7 @@
             "gridPos": {
                 "h": 7,
                 "w": 9,
-                "x": 15,
+                "x": 10,
                 "y": 7
             },
             "id": 7,
@@ -608,7 +456,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select * from aws_rds_clusters where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select * from aws_iam_roles where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -632,7 +480,463 @@
                     ]
                 }
             ],
-            "title": "aws_rds_clusters",
+            "title": "aws_iam_roles",
+            "type": "table"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 0,
+                "y": 14
+            },
+            "id": 8,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select account_id, count(*) from aws_iam_groups group by account_id",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_iam_groups by account_id",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 5,
+                "y": 14
+            },
+            "id": 9,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "text": {},
+                "textMode": "auto"
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select count(*) from aws_iam_groups where account_id in (${account_ids})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_iam_groups",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 9,
+                "x": 10,
+                "y": 14
+            },
+            "id": 11,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select * from aws_iam_groups where account_id in (${account_ids})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "aws_iam_groups",
+            "type": "table"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 0,
+                "y": 21
+            },
+            "id": 12,
+            "options": {
+                "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom"
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single"
+                }
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select account_id, count(*) from aws_iam_policies group by account_id",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_iam_policies by account_id",
+            "type": "piechart"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 5,
+                "x": 5,
+                "y": 21
+            },
+            "id": 13,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "text": {},
+                "textMode": "auto"
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select count(*) from aws_iam_policies where account_id in (${account_ids})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "count aws_iam_policies",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 9,
+                "x": 10,
+                "y": 21
+            },
+            "id": 15,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "8.2.2",
+            "targets": [
+                {
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "select * from aws_iam_policies where account_id in (${account_ids})",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": [
+                                    "data_transfer_progress_current_rate_in_mega_bytes_per_second"
+                                ],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "aws_redshift_clusters",
+                    "timeColumn": "cluster_create_time",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "aws_iam_policies",
             "type": "table"
         }
     ],
@@ -640,7 +944,7 @@
     "style": "dark",
     "tags": [
         "aws",
-        "rds"
+        "iam"
     ],
     "templating": {
         "list": [
@@ -815,7 +1119,7 @@
     },
     "timepicker": {},
     "timezone": "",
-    "title": "AWS RDS",
-    "uid": "aws_rds_json",
+    "title": "AWS IAM",
+    "uid": "aws_iam_json",
     "version": 3
 }
