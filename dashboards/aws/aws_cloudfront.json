@@ -64,7 +64,7 @@
     "liveNow": false,
     "panels": [
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -140,7 +140,7 @@
             "type": "piechart"
         },
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -220,7 +220,7 @@
             "type": "stat"
         },
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -292,7 +292,7 @@
             "type": "table"
         },
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -368,7 +368,7 @@
             "type": "piechart"
         },
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -448,7 +448,7 @@
             "type": "stat"
         },
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -539,7 +539,7 @@
                         "$__all"
                     ]
                 },
-                "datasource": null,
+                "datasource": "${DS_POSTGRESQL}",
                 "definition": "select account_id from aws_accounts",
                 "description": null,
                 "error": null,

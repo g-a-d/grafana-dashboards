@@ -64,7 +64,7 @@
     "liveNow": false,
     "panels": [
       {
-        "datasource": null,
+        "datasource": "${DS_POSTGRESQL}",
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -151,7 +151,7 @@
         "type": "table"
       },
       {
-        "datasource": null,
+        "datasource": "${DS_POSTGRESQL}",
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -292,7 +292,7 @@
         "type": "piechart"
       },
       {
-        "datasource": null,
+        "datasource": "${DS_POSTGRESQL}",
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -379,7 +379,7 @@
         "type": "table"
       },
       {
-        "datasource": null,
+        "datasource": "${DS_POSTGRESQL}",
         "fieldConfig": {
           "defaults": {
             "color": {

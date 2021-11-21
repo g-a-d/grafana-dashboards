@@ -64,7 +64,7 @@
     "liveNow": false,
     "panels": [
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -140,7 +140,7 @@
             "type": "piechart"
         },
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -220,7 +220,7 @@
             "type": "stat"
         },
         {
-            "datasource": null,
+            "datasource": "${DS_POSTGRESQL}",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -308,7 +308,7 @@
                     "text": "All",
                     "value": "$__all"
                 },
-                "datasource": null,
+                "datasource": "${DS_POSTGRESQL}",
                 "definition": "select project_id from gcp_crm_projects",
                 "description": null,
                 "error": null,
