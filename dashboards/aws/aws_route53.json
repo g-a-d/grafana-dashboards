@@ -156,7 +156,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select count(*) from aws_route53_domains where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select count(*) from aws_route53_domains where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -232,7 +232,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select region, count(*) from aws_route53_domains where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "rawSql": "select count(*) from aws_route53_domains where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -256,7 +256,7 @@
                     ]
                 }
             ],
-            "title": "count aws_route53_domains by region",
+            "title": "count aws_route53_domains",
             "type": "piechart"
         },
         {
@@ -304,7 +304,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select * from aws_route53_domains where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select * from aws_route53_domains where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -460,7 +460,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select count(*) from aws_route53_hosted_zones where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select count(*) from aws_route53_hosted_zones where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -536,7 +536,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select region, count(*) from aws_route53_hosted_zones where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "rawSql": "select count(*) from aws_route53_hosted_zones where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -560,7 +560,7 @@
                     ]
                 }
             ],
-            "title": "count aws_route53_hosted_zones by region",
+            "title": "count aws_route53_hosted_zones",
             "type": "piechart"
         },
         {
@@ -608,7 +608,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select * from aws_route53_hosted_zones where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select * from aws_route53_hosted_zones where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -684,7 +684,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select account_id, count(*) from aws_route53_trafic_policies group by account_id",
+                    "rawSql": "select account_id, count(*) from aws_route53_traffic_policies group by account_id",
                     "refId": "A",
                     "select": [
                         [
@@ -708,7 +708,7 @@
                     ]
                 }
             ],
-            "title": "count aws_route53_trafic_policies by account_id",
+            "title": "count aws_route53_traffic_policies by account_id",
             "type": "piechart"
         },
         {
@@ -764,7 +764,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select count(*) from aws_route53_trafic_policies where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select count(*) from aws_route53_traffic_policies where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -788,7 +788,7 @@
                     ]
                 }
             ],
-            "title": "count aws_route53_trafic_policies",
+            "title": "count aws_route53_traffic_policies",
             "type": "stat"
         },
         {
@@ -840,7 +840,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select region, count(*) from aws_route53_trafic_policies where account_id in (${account_ids}) and region in (${regions}) group by region",
+                    "rawSql": "select count(*) from aws_route53_traffic_policies where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -864,7 +864,7 @@
                     ]
                 }
             ],
-            "title": "count aws_route53_trafic_policies by region",
+            "title": "count aws_route53_traffic_policies",
             "type": "piechart"
         },
         {
@@ -912,7 +912,7 @@
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "select * from aws_route53_trafic_policies where account_id in (${account_ids}) and region in (${regions})",
+                    "rawSql": "select * from aws_route53_traffic_policies where account_id in (${account_ids})",
                     "refId": "A",
                     "select": [
                         [
@@ -936,7 +936,7 @@
                     ]
                 }
             ],
-            "title": "aws_route53_trafic_policies",
+            "title": "aws_route53_traffic_policies",
             "type": "table"
         }
     ],
@@ -975,141 +975,6 @@
                 "skipUrlSync": false,
                 "sort": 1,
                 "type": "query"
-            },
-            {
-                "allValue": null,
-                "current": {
-                    "selected": true,
-                    "text": [
-                        "All"
-                    ],
-                    "value": [
-                        "$__all"
-                    ]
-                },
-                "description": null,
-                "error": null,
-                "hide": 0,
-                "includeAll": true,
-                "label": null,
-                "multi": true,
-                "name": "regions",
-                "options": [
-                    {
-                        "selected": true,
-                        "text": "All",
-                        "value": "$__all"
-                    },
-                    {
-                        "selected": false,
-                        "text": "us-east-2",
-                        "value": "us-east-2"
-                    },
-                    {
-                        "selected": false,
-                        "text": "us-east-1",
-                        "value": "us-east-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "us-west-1",
-                        "value": "us-west-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "us-west-2",
-                        "value": "us-west-2"
-                    },
-                    {
-                        "selected": false,
-                        "text": "af-south-1",
-                        "value": "af-south-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ap-east-1",
-                        "value": "ap-east-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ap-south-1",
-                        "value": "ap-south-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ap-northeast-3",
-                        "value": "ap-northeast-3"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ap-northeast-2",
-                        "value": "ap-northeast-2"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ap-southeast-1",
-                        "value": "ap-southeast-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ap-southeast-2",
-                        "value": "ap-southeast-2"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ap-northeast-1",
-                        "value": "ap-northeast-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "ca-central-1",
-                        "value": "ca-central-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "eu-central-1",
-                        "value": "eu-central-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "eu-west-1",
-                        "value": "eu-west-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "eu-west-2",
-                        "value": "eu-west-2"
-                    },
-                    {
-                        "selected": false,
-                        "text": "eu-south-1",
-                        "value": "eu-south-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "eu-west-3",
-                        "value": "eu-west-3"
-                    },
-                    {
-                        "selected": false,
-                        "text": "eu-north-1",
-                        "value": "eu-north-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "me-south-1",
-                        "value": "me-south-1"
-                    },
-                    {
-                        "selected": false,
-                        "text": "sa-east-1",
-                        "value": "sa-east-1"
-                    }
-                ],
-                "query": "us-east-2,us-east-1,us-west-1,us-west-2,af-south-1,ap-east-1,ap-south-1,ap-northeast-3,ap-northeast-2,ap-southeast-1,ap-southeast-2,ap-northeast-1,ca-central-1,eu-central-1,eu-west-1,eu-west-2,eu-south-1,eu-west-3,eu-north-1,me-south-1,sa-east-1",
-                "queryValue": "",
-                "skipUrlSync": false,
-                "type": "custom"
             }
         ]
     },
